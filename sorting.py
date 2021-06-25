@@ -18,8 +18,8 @@ def solution(lst): # The function takes a list containing unsorted number as par
     
     # The next three lines are according to the requirements of the problem.
     print(f"Array is sorted in {swap} swaps.")
-    print(f"First element: {lst[0]}")
-    print(f"Last element: {lst[(len(lst))-1]}")
+    print(f"First Element: {lst[0]}")
+    print(f"Last Element: {lst[(len(lst))-1]}")
     return lst
 
 
