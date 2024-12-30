@@ -10,7 +10,12 @@ public:
             int difference = target - nums[i];
             auto mapElement = myMap.find(difference);
             if (mapElement != myMap.end() && (mapElement->second != i)) {
-                return {i, mapElement->second};
+                if (i > mapElement->second) {
+                    return {mapElement->second, i};
+                }
+                else {
+                    return {i, mapElement->second};
+                }
             }
         }
         return {};
