@@ -16,19 +16,23 @@ class Solution:
                 postfix[j] = postfix[j+1] * nums[j]
                 i += 1
                 j -= 1
-        # print(prefix)
-        # print(postfix)
+        print(prefix)
+        print(postfix)
         i = 0
+        j = len(nums) - 1
         while i < len(nums):
             if i == 0:
-                result_list.append(postfix[i])
+                result_list.append(postfix[i+1])
                 i += 1
+                j -= 1
             elif i == (len(nums) - 1):
-                result_list.append(prefix[i])
+                result_list.append(prefix[i-1])
                 i += 1
+                j -= 1
             else:
                 result_list.append(prefix[i-1]*postfix[i+1])
                 i += 1
+                j -= 1
         return result_list
         
             
