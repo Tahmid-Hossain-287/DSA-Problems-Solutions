@@ -6,7 +6,17 @@ class Solution:
         first_part = (s[:int(len(s)/2)])
         second_part = (s[int(len(s)/2):])
 
-        if first_part == second_part[::-1]:
-            return True
-        else:
-            return False
+        left = 0
+        right = len(s) - 1
+
+        while left < right:
+            if (
+                not((s[left] == "(") and (s[right] == ")")) 
+                or not((s[left] == "{") and (s[right] == "}")) 
+                or not((s[left] == "[") and (s[right] == "]"))
+            ):
+                return False
+            else:
+                left += 1
+                right -= 1
+        return True
