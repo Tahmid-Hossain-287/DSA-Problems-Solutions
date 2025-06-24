@@ -1,22 +1,22 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        if (len(s)%2) != 0:
-            return False
 
-        first_part = (s[:int(len(s)/2)])
-        second_part = (s[int(len(s)/2):])
+        stack = []
+        closing_opening = {
+            ')' : '(',
+            '}' : '{',
+            ']' : '['
+        }
 
-        left = 0
-        right = len(s) - 1
-
-        while left < right:
-            if (
-                not((s[left] == "(") and (s[right] == ")")) 
-                or not((s[left] == "{") and (s[right] == "}")) 
-                or not((s[left] == "[") and (s[right] == "]"))
-            ):
-                return False
+        for c in s:
+            if c in closing_opening.keys() and stack:
+                if stack[-1] == closing_opening[c]:
+                    stack.pop()
+                else:
+                    return False
             else:
-                left += 1
-                right -= 1
-        return True
+                stack.append(c)
+        if not stack:
+            return True
+        else:
+            return False
