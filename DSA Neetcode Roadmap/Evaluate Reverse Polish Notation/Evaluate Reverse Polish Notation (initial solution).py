@@ -15,7 +15,7 @@ class Solution:
             if tokens[i] in operators:
                 # you have numbers on your stack. use the operator on them.
                 operation = operators[tokens[i]]
-                if len(stack) == 2:
+                if not(answer):
                     answer = operation(stack[0], stack[1])
                     stack.clear()
                 else:
